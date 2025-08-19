@@ -2,6 +2,9 @@
 
 A modern quiz application built with React, TypeScript, Vite, and Material UI. It includes authentication (mocked), quiz management, attempts, results, and a rich Leaderboard with real user profile data (name, email, avatar). The UI supports light/dark themes with a one-click toggle in the navbar.
 
+
+##video
+<!-- Failed to upload "Screen Recording 2025-08-19 at 4.07.33 PM(1) (online-video-cutter.com).mp4" -->
 ## Project Layout
 
 ```
