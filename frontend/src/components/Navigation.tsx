@@ -25,6 +25,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 // import HomeIcon from '@mui/icons-material/Home';
 import QuizIcon from '@mui/icons-material/Quiz';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -80,21 +81,22 @@ const Navigation: React.FC = () => {
   };
 
   // Derive leaderboard path based on current route context (use current quiz id when available)
-  const deriveLeaderboardPath = () => {
-    const matchQuiz = location.pathname.match(/^\/QuizArena\/(\w+)/);
-    if (matchQuiz && matchQuiz[1]) return `/leaderboard/${matchQuiz[1]}`;
-    const matchResults = location.pathname.match(/^\/results\/(\w+)/);
-    if (matchResults && matchResults[1]) return `/leaderboard/${matchResults[1]}`;
-    const matchLeaderboard = location.pathname.match(/^\/leaderboard\/(\w+)/);
-    if (matchLeaderboard && matchLeaderboard[1]) return `/leaderboard/${matchLeaderboard[1]}`;
-    return '/quizzes';
-  };
+  // const deriveLeaderboardPath = () => {
+  //   const matchQuiz = location.pathname.match(/^\/quiz\/(\w+)/);
+  //   if (matchQuiz && matchQuiz[1]) return `/leaderboard/${matchQuiz[1]}`;
+  //   const matchResults = location.pathname.match(/^\/results\/(\w+)/);
+  //   if (matchResults && matchResults[1]) return `/leaderboard/${matchResults[1]}`;
+  //   const matchLeaderboard = location.pathname.match(/^\/leaderboard\/(\w+)/);
+  //   if (matchLeaderboard && matchLeaderboard[1]) return `/leaderboard/${matchLeaderboard[1]}`;
+  //   return '/quizzes';
+  // };
 
-  const leaderboardPath = deriveLeaderboardPath();
+  // const leaderboardPath = deriveLeaderboardPath();
 
   const navItems = [
     { name: t('navigation.quizzes'), path: '/quizzes', icon: <QuizIcon />, auth: true },
     { name: t('navigation.leaderboard'), path: '/leaderboard', icon: <LeaderboardIcon />, auth: true },
+    { name: t('navigation.results') || 'Results', path: '/results', icon: <AssessmentIcon />, auth: true },
     { name: t('navigation.admin'), path: '/admin', icon: <AdminPanelSettingsIcon />, admin: true },
   ];
 
@@ -128,7 +130,7 @@ const Navigation: React.FC = () => {
                 },
               }}
             >
-              <ListItemIcon sx={{ color: (location.pathname === item.path || (item.path.startsWith('/leaderboard') && location.pathname.startsWith('/leaderboard'))) ? 'white' : 'inherit' }}>
+              <ListItemIcon sx={{ color: (location.pathname === item.path || (item.path.startsWith('/leaderboard') && location.pathname.startsWith('/leaderboard')) || (item.path.startsWith('/results') && location.pathname.startsWith('/results'))) ? 'primary.contrastText' : 'inherit' }}>
                 {item.icon}
               </ListItemIcon>
               <ListItemText primary={item.name} />
@@ -220,15 +222,16 @@ const Navigation: React.FC = () => {
                     to={item.path}
                     sx={{
                       my: 2,
-                      color: 'white',
+                      color: 'text.primary',
                       display: 'flex',
                       alignItems: 'center',
                       mx: 1,
                       '&:hover': {
-                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        backgroundColor: 'action.hover',
                       },
-                      ...((location.pathname === item.path || (item.path.startsWith('/leaderboard') && location.pathname.startsWith('/leaderboard'))) && {
-                        borderBottom: '3px solid white',
+                      ...((location.pathname === item.path || (item.path.startsWith('/leaderboard') && location.pathname.startsWith('/leaderboard')) || (item.path.startsWith('/results') && location.pathname.startsWith('/results'))) && {
+                        borderBottom: '3px solid',
+                        borderColor: 'primary.main',
                       }),
                     }}
                     startIcon={item.icon}

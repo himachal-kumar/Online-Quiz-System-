@@ -23,6 +23,7 @@ const QuizDetail = lazy(() => import('./pages/quizzes/QuizDetail'));
 const QuizAttempt = lazy(() => import('./pages/quizzes/QuizAttempt'));
 const QuizResults = lazy(() => import('./pages/quizzes/QuizResults'));
 const Leaderboard = lazy(() => import('./pages/quizzes/Leaderboard.tsx'));
+const ResultsIndex = lazy(() => import('./pages/quizzes/ResultsIndex'));
 const LeaderboardIndex = lazy(() => import('./pages/quizzes/LeaderboardIndex'));
 
 // Loading component for suspense fallback
@@ -77,6 +78,12 @@ function App() {
             <Route path="/results/:id" element={
               <Suspense fallback={<LoadingFallback />}>
                 <QuizResults />
+              </Suspense>
+            } />
+
+            <Route path="/results" element={
+              <Suspense fallback={<LoadingFallback />}>
+                <ResultsIndex />
               </Suspense>
             } />
             
