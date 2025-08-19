@@ -1,36 +1,54 @@
-# Online Quiz System
+# 🎓 Online Quiz System
 
-A modern quiz application built with React, TypeScript, Vite, and Material UI. It includes authentication (mocked), quiz management, attempts, results, and a rich Leaderboard with real user profile data (name, email, avatar). The UI supports light/dark themes with a one-click toggle in the navbar.
+A modern **Quiz App** built with **React, TypeScript, Vite, and Material UI**.  
+Includes **mock authentication**, quiz attempts, results, and a **Leaderboard** with user profile data. Supports **dark/light themes**, **i18n (EN/ES/FR)**, **skeleton loading**, and **notifications** — all persisted with `localStorage`.
 
-## Video 
-https://drive.google.com/file/d/1nnlzsNdSB_gyk3M5BGBLmkPbLPQjkZGB/view?usp=sharing
+---
 
-<!-- Failed to upload "Screen Recording 2025-08-19 at 4.07.33 PM(1) (online-video-cutter.com).mp4" -->
-## Project Layout
+## 📽️ Demo  
+[▶ Watch Demo](https://drive.google.com/file/d/1nnlzsNdSB_gyk3M5BGBLmkPbLPQjkZGB/view?usp=sharing)
 
-```
-Online Quiz System/
-  └─ frontend/        # React app (Vite + TS + MUI)
-```
+---
 
-## Quick Start (Frontend)
-
-```
+## 🚀 Quick Start
+```bash
 cd frontend
 npm install
 npm run dev
-```
+
 
 Open the app at `http://localhost:5173` (if busy, Vite will auto-increment the port).
 
-## Features
+Features
 
-- Leaderboard per quiz showing user name, email, avatar, score, percentage, time spent, and date
-- Leaderboard index at `/leaderboard` to browse all quizzes
-- Dark/Light theme with persistent toggle in navbar
-- Mocked auth/data via `localStorage` for easy evaluation (auto-login a default user)
-- i18n setup (EN, ES, FR)
+🏆 Leaderboard per quiz (/leaderboard/:quizId) with name, email, avatar, score, percentage, time spent, date
 
-## More
+📊 Leaderboard Index (/leaderboard) with sorting & filtering (highest score, fastest time, latest attempt)
 
-- Detailed usage, scripts, troubleshooting: see `frontend/README.md`
+🌙 Dark/Light Theme toggle (persistent)
+
+👤 Mock Auth (auto-login default user, localStorage JWT/session)
+
+🌐 i18n (EN, ES, FR with navbar switcher, persistent)
+
+⏳ Skeleton Loading for quizzes & leaderboard
+
+🔑 Login Page with mocked validation
+
+🔔 Notifications for quiz submission, login, errors
+
+📅 Roadmap
+
+ Leaderboard with filters
+
+ Theme toggle (persistent)
+
+ Mock authentication
+
+ i18n (EN/ES/FR)
+
+ Skeleton loading + notifications
+
+ Add more languages
+
+
